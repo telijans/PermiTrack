@@ -424,6 +424,175 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.06) !impo
 
 /* ── Selection ─────────────────────────────────────────── */
 ::selection { background: rgba(33,101,191,0.35); color: #EEF2FA; }
+
+/* ════════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet and below (≤768px) ──────────────────────────── */
+@media (max-width: 768px) {
+    /* KPI cards: 2 columns on tablet */
+    .kpi-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .kpi-card {
+        padding: 1rem 1.2rem !important;
+    }
+
+    /* Masthead adjustments */
+    .masthead {
+        padding: 1.5rem !important;
+        gap: 1.5rem !important;
+    }
+
+    .masthead-title {
+        font-size: 1.75rem !important;
+    }
+
+    /* Reduce container padding */
+    .block-container {
+        padding: 0 4vw 4rem 4vw !important;
+    }
+
+    .main .block-container {
+        padding-left: clamp(1rem, 4vw, 3rem) !important;
+        padding-right: clamp(1rem, 4vw, 3rem) !important;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab"] {
+        padding: 0.45rem 1rem !important;
+        font-size: 0.78rem !important;
+    }
+
+    /* Charts */
+    .chart-glass {
+        padding: 1rem !important;
+    }
+}
+
+/* ── Mobile and below (≤480px) ──────────────────────────── */
+@media (max-width: 480px) {
+    /* KPI cards: 1 column on mobile */
+    .kpi-row {
+        grid-template-columns: 1fr !important;
+        gap: 0.875rem !important;
+        margin: 0 0 2rem !important;
+    }
+
+    .kpi-card {
+        padding: 1rem !important;
+    }
+
+    .kpi-value {
+        font-size: clamp(1.15rem, 5vw, 1.5rem) !important;
+    }
+
+    /* Masthead: stack vertically */
+    .masthead {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 1.25rem 1rem !important;
+        gap: 1rem !important;
+    }
+
+    .masthead-title {
+        font-size: 1.5rem !important;
+    }
+
+    .masthead-eyebrow {
+        font-size: 0.6rem !important;
+    }
+
+    .masthead-divider {
+        display: none !important; /* Hide vertical divider when stacked */
+    }
+
+    .masthead-meta {
+        font-size: 0.62rem !important;
+    }
+
+    .masthead-actions {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    /* Container padding */
+    .block-container {
+        padding: 0 1rem 3rem 1rem !important;
+    }
+
+    .main .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        padding: 4px !important;
+        gap: 3px !important;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        padding: 0.4rem 0.75rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* Buttons: full width on mobile */
+    .stDownloadButton > button, .stButton > button {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.78rem !important;
+        width: 100% !important;
+    }
+
+    /* Section labels */
+    .section-label {
+        font-size: 0.58rem !important;
+        margin: 2rem 0 0.875rem !important;
+    }
+
+    /* Charts */
+    .chart-glass {
+        padding: 0.875rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .chart-caption {
+        font-size: 0.58rem !important;
+        margin: -0.375rem 0 1rem 0 !important;
+    }
+
+    /* Ensure no horizontal overflow */
+    body, .stApp, .main {
+        overflow-x: hidden !important;
+    }
+}
+
+/* ── Small mobile (≤375px) ──────────────────────────────── */
+@media (max-width: 375px) {
+    .masthead-title {
+        font-size: 1.35rem !important;
+    }
+
+    .kpi-card {
+        padding: 0.875rem !important;
+    }
+
+    .kpi-label {
+        font-size: 0.58rem !important;
+    }
+
+    .block-container {
+        padding: 0 0.875rem 2.5rem 0.875rem !important;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        padding: 0.375rem 0.625rem !important;
+        font-size: 0.7rem !important;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
