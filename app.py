@@ -22,14 +22,35 @@ st.markdown("""
 
 /* ── Reset & base ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
+
+/* ── Gradient background (Streamlit Cloud compatible) ─── */
+.stApp,
+[data-testid="stAppViewContainer"],
+section.main,
+.main {
+    background: linear-gradient(160deg, #0D1B3E 0%, #1A3468 45%, #2165BF 100%) !important;
+    background-attachment: fixed !important;
+}
+
+html, body {
+    background: #0D1B3E !important;
+}
+
+/* Make content transparent to show gradient */
+section[data-testid="stMain"],
+.block-container {
+    background: transparent !important;
+}
+
 html, body, [class*="css"] {
     font-family: 'Inter', sans-serif;
-    background: #0D1B3E !important;
     color: #E8EEF8;
 }
 
 /* ── Streamlit chrome removal ──────────────────────────── */
-#MainMenu, footer, header { visibility: hidden; }
+#MainMenu, footer { visibility: hidden; }
+header { visibility: visible !important; }
+header[data-testid="stHeader"] { background: transparent !important; }
 .block-container {
     padding: 0 6vw 5rem 6vw !important;
     max-width: 1280px !important;
@@ -45,16 +66,6 @@ html, body, [class*="css"] {
 section[data-testid="stMain"] > div {
     max-width: 1280px;
     margin: 0 auto;
-}
-
-/* ── Animated gradient background ─────────────────────── */
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background:
-        linear-gradient(160deg, #0D1B3E 0%, #1A3468 45%, #2165BF 100%);
 }
 
 /* ── Masthead ──────────────────────────────────────────── */
@@ -274,6 +285,9 @@ section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, rgba(13,27,62,0.95) 0%, rgba(26,52,104,0.92) 50%, rgba(33,101,191,0.88) 100%) !important;
     backdrop-filter: blur(24px) !important;
     border-right: 1px solid rgba(255,255,255,0.12) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 section[data-testid="stSidebar"] * { color: #A8C4E8 !important; }
 section[data-testid="stSidebar"] h3 { color: #FFFFFF !important; font-size: 0.8rem !important; letter-spacing: 0.06em !important; }
@@ -1028,11 +1042,17 @@ with tab3:
     st.dataframe(nbhd_display, use_container_width=True, height=340)
 
 # ── Disclaimer ─────────────────────────────────────────────────────────────────
-st.markdown("""
+current_year = datetime.now().year
+st.markdown(f"""
 <div class="disclaimer">
 Data sourced from the City of Orlando Permit Applications dataset via the SODA API.
 The City of Orlando does not guarantee the accuracy of this information and will not be responsible for any error or omission,
 or for the use of, or the results obtained from the use of this information.
 All data is provided for informational purposes only. Attempts to derive specific addresses from Business Tax Receipt data are strictly prohibited per City policy.
+</div>
+<div style="text-align: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06);">
+  <p style="font-family: 'DM Mono', monospace; font-size: 0.58rem; color: rgba(255,255,255,0.50); letter-spacing: 0.02em; margin: 0;">
+    © {current_year} Telijans, LLC. All rights reserved.
+  </p>
 </div>
 """, unsafe_allow_html=True)
