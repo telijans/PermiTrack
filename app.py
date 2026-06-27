@@ -371,7 +371,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.06) !impo
     padding: 1rem 1.25rem !important;
 }
 [data-testid="stMetricLabel"] { color: #7AAAD8 !important; font-size: 0.72rem !important; }
-[data-testid="stMetricValue"] { color: #FFFFFF !important; font-family: 'Syne', sans-serif !important; }
+[data-testid="stMetricValue"] { color: #FFFFFF !important; font-family: 'Inter', sans-serif !important; font-weight: 700 !important; }
 
 /* ── Inputs ────────────────────────────────────────────── */
 .stTextInput input, .stNumberInput input {
