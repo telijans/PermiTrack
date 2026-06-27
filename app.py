@@ -211,12 +211,12 @@ section[data-testid="stMain"] > div {
     display: block;
 }
 .kpi-value {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-    font-weight: 800;
+    font-weight: 700;
     color: #FFFFFF;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     display: block;
     margin-bottom: 0.5rem;
     word-break: break-word;
